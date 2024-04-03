@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="radio"],
+        button[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="radio"]:focus,
+        button[type="submit"]:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        h2, h3 {
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #fff;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* UI Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>HealthCare ChatBot</h1>
+        <form action="/" method="POST">
+            <label for="symptom_input">Enter your symptom:</label>
+            <input type="text" id="symptom_input" name="symptom_input" required>
+
+            <label for="num_days">Days since symptom:</label>
+            <input type="number" id="num_days" name="num_days" required>
+
+            <h3>Symptoms Checklist:</h3>
+            {% for symptom in symptoms %}
+                <label for="{{ symptom }}">{{ symptom }}:</label>
+                <input type="radio" id="{{ symptom }}" name="{{ symptom }}" value="yes"> Yes
+                <input type="radio" id="{{ symptom }}" name="{{ symptom }}" value="no"> No<br>
+            {% endfor %}
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        {% if output_message %}
+            <h2>Result:</h2>
+            <p>{{ output_message }}</p>
+
+            <h3>Precautions:</h3>
+            <ul>
+            {% for precaution in precautions %}
+                <li>{{ precaution }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
