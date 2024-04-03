@@ -1,7 +1,3 @@
-Sure, here's an example of a README.md file for your HealthCare ChatBot project:
-
----
-
 # HealthCare ChatBot
 
 HealthCare ChatBot is a web-based application designed to assist users in understanding their symptoms, providing potential diagnoses, and offering precautionary measures. This chatbot utilizes a simple interface and machine learning algorithms to deliver accurate information based on user inputs.
