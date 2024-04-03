@@ -24,7 +24,7 @@ HealthCare ChatBot is a web-based application designed to assist users in unders
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/HealthCare-ChatBot.git
+   git clone https://github.com/0xHarrix/TNSDC-Generative-AI
    ```
 2. Navigate to the project directory:
    ```bash
