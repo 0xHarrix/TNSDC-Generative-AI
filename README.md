@@ -28,7 +28,7 @@ HealthCare ChatBot is a web-based application designed to assist users in unders
    ```
 2. Navigate to the project directory:
    ```bash
-   cd HealthCare-ChatBot
+   cd TNSDC-Generative-AI
    ```
 3. Install dependencies:
    ```bash
